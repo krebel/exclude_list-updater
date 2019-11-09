@@ -28,17 +28,17 @@ threemo=`date --date="3 months ago" +%Y%m`
 cp -p /usr/openv/netbackup/exclude_list /log/exclude_list_`date +%d%b%Y`
 
 # overwrite and add previous 3, 4 and 5 months ago excludes for those entire months:
-echo "/mnt/remote/*/*/*"$fivemo"*" > /usr/openv/netbackup/exclude_list
-echo "/mnt/remote/*/*/*"$fourmo"*" >> /usr/openv/netbackup/exclude_list
-echo "/mnt/remote/*/*/*"$threemo"*" >> /usr/openv/netbackup/exclude_list
+echo "/data/dumps/*/*/*"$fivemo"*" > /usr/openv/netbackup/exclude_list
+echo "/data/dumps/*/*/*"$fourmo"*" >> /usr/openv/netbackup/exclude_list
+echo "/data/dumps/*/*/*"$threemo"*" >> /usr/openv/netbackup/exclude_list
 
 
 # For the month the 43rd day ago falls in, create wild card exclude days leading up to
 # the 43rd day ago only if that day is not the 1st of the month:
 
 if [ "$endday" = "01" ]; then
-    echo "/mnt/remote/*/*/*"$yrmon$endday"*" >> /usr/openv/netbackup/exclude_list
+    echo "/data/dumps/*/*/*"$yrmon$endday"*" >> /usr/openv/netbackup/exclude_list
     exit 0
 elif [ "$endday" != "01" ]; then
-    echo "/mnt/remote/*/*/*"$yrmon"[01-"$endday"]*" >> /usr/openv/netbackup/exclude_list
+    echo "/data/dumps/*/*/*"$yrmon"[01-"$endday"]*" >> /usr/openv/netbackup/exclude_list
 fi
