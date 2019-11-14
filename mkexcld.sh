@@ -22,6 +22,7 @@ endday=`echo $epoch | cut -c 7-8`
 fivemo=`date --date="5 months ago" +%Y%m`
 fourmo=`date --date="4 months ago" +%Y%m`
 threemo=`date --date="3 months ago" +%Y%m`
+twomo=`date --date="2 months ago" +%Y%m`
 
 # main
 
@@ -32,6 +33,7 @@ cp -p /usr/openv/netbackup/exclude_list /log/exclude_list_`date +%d%b%Y`
 echo "/data/dumps/*/*/*"$fivemo"*" > /usr/openv/netbackup/exclude_list
 echo "/data/dumps/*/*/*"$fourmo"*" >> /usr/openv/netbackup/exclude_list
 echo "/data/dumps/*/*/*"$threemo"*" >> /usr/openv/netbackup/exclude_list
+echo "/mnt/remote/*/*/*"$twomo"*" >> /usr/openv/netbackup/exclude_list
 
 
 # For the month the 43rd day ago falls in, create wild card exclude days leading up to
