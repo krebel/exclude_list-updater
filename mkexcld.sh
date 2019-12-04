@@ -43,5 +43,5 @@ if [ "$endday" = "01" ]; then
     echo "/data/dumps/*/*/*"$yrmon$endday"*" >> /usr/openv/netbackup/exclude_list
     exit 0
 elif [ "$endday" != "01" ]; then
-    echo "/data/dumps/*/*/*"$yrmon"[01-"$endday"]*" >> /usr/openv/netbackup/exclude_list
+    echo "/data/dumps/*/*/*"$yrmon"\[01-"$endday"\]*" >> /usr/openv/netbackup/exclude_list
 fi
